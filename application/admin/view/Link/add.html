@@ -1,0 +1,40 @@
+{extend name="AdminPublic:index"/}
+{block name="title"}添加链接{/block}
+{block name="content"}
+<div class="mws-panel">
+    <div class="mws-panel-header">
+        <span>添加链接</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form" action="/link/Insert" method="post">
+            <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    <label class="mws-form-label">url地址</label>
+                    <div class="mws-form-item">
+                        <input class="large" type="text" name="url">
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">名称</label>
+                    <div class="mws-form-item">
+                        <input class="large" type="text" name="name">
+                    </div>
+                </div>
+            </div>
+            <div class="mws-button-row">
+                <input value="添加" class="btn btn-danger" type="submit">
+                <input value="重置" class="btn " type="reset">
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.mws-form').submit(function(){
+        val=$(':selected').val();
+        // alert(val);
+        // return false;
+    })
+</script>
+{/block}

@@ -1,0 +1,42 @@
+{extend name="AdminPublic:index"/}
+{block name="title"}查看栏目{/block}
+{block name="content"}
+<div class="mws-panel">
+    <div class="mws-panel-header">
+        <span>查看栏目</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <form class="mws-form" action="/advert/Update" method="post" enctype="multipart/form-data">
+            <div class="mws-form-inline">
+                <div class="mws-form-row">
+                    <label class="mws-form-label">url地址</label>
+                        <div class="mws-form-item">
+                            <input class="large" type="text" name="url" value="{$info.url}">
+                        </div>
+                </div>
+                <div class="mws-form-row">
+                    <label class="mws-form-label">图片</label>
+                    <div class="mws-form-item">
+                        <img src="/uploads/{$info.pic}" alt="">
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <div class="mws-form-item">
+                        <input class="large" type="file" name="pic" >
+                        <img src="" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="mws-button-row">
+                <input value="修改" class="btn btn-danger" type="submit">
+                <input value="重置" class="btn " type="reset">
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('input[name="pic"]').
+</script>
+{/block}

@@ -1,0 +1,49 @@
+{block name="title"}管理员添加{/block}
+{extend name="AdminPublic:index"/}
+{block name="content"}
+<html>
+ <head></head>
+ <body>
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span>管理员添加</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <form class="mws-form" action="/admins/insert" method="post"> 
+     <div class="mws-form-inline"> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">管理员用户名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="name"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">密码</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="password" name="pwd" /> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">重复密码</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="password" name="repwd" /> 
+       </div> 
+      </div> 
+     
+     <!--  <div class="mws-form-row"> 
+       <label class="mws-form-label">管理员等级</label> 
+       <div class="mws-form-item"> 
+        <select class="large" name="status"> <option value="1">普通管理员</option><option value="2">高级管理员</option> <option value="3">超级管理员</option></select> 
+       </div> 
+      </div>  -->
+      
+     <div class="mws-button-row"> 
+      <input value="提交" class="btn btn-danger" type="submit" /> 
+      <input value="重置" class="btn " type="reset" /> 
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+ </body>
+</html>
+{/block}

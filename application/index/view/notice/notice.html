@@ -1,0 +1,25 @@
+{:widget('Index/header')}
+<div class="hr-10"></div>
+<div class="g" >
+    <!--面包屑 -->
+    <div class="breadcrumb-area fcn"><a href="/index/index" title="首页">首页</a>&nbsp;>&nbsp;<a href="/inotice/list" title="商城公告">商城公告</a>&nbsp;>&nbsp;<span>{$info.title}</span></div>
+</div>
+<div class="hr-15" ></div>
+<div style="margin: 0 auto;width: 60%;text-indent: 2em;">
+    <div >
+        <!--新闻-详情 -->
+        <div >
+
+                <h1 style="font-size: 60px;text-align: center">{$info.title}</h1>
+
+            <div class="b">{$info.centent}</div>
+            <div class="news-extra-area clearfix">
+                <div>更新时间：{$info.addtime|date="Y-m-d",###}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hr-60"></div>
+<!--口号-20121025 -->
+
+{:widget('Index/footer')}

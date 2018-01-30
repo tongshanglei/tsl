@@ -1,0 +1,59 @@
+{extend name="AdminPublic:index"/}
+{block name="content"}
+    <!-- <p>操作系统:{$info['操作系统']}</p>
+    <p>运行环境:{$info['运行环境']}</p>
+    <p>PHP运行方式:{$info['PHP运行方式']}</p>
+    <p>ThinkPHP版本:{$info['ThinkPHP版本']}</p>
+    <p>上传附件限制:{$info['上传附件限制']}</p>
+    <p>执行时间限制:{$info['执行时间限制']}</p>
+    <p>服务器时间:{$info['服务器时间']}</p>
+    <p>北京时间:{$info['北京时间']}</p>
+    <p>服务器域名/IP:{$info['服务器域名/IP']}</p>
+    <p>剩余空间:{$info['剩余空间']}</p> -->
+    <center><h2 color="black">系统信息</h2></center>
+    <table class="mws-datatable-fn mws-table dataTable" >
+        <tr>
+            <td>操作系统</td>
+            <td>{$info['操作系统']}</td>
+        </tr>
+        <tr>
+            <td>运行环境</td>
+            <td>{$info['运行环境']}</td>
+        </tr>
+        <tr>
+            <td>PHP运行方式</td>
+            <td>{$info['PHP运行方式']}</td>
+        </tr>
+        <tr>
+            <td>ThinkPHP版本</td>
+            <td>{$info['ThinkPHP版本']}</td>
+        </tr>
+        <tr>
+            <td>上传附件限制</td>
+            <td>{$info['上传附件限制']}</td>
+        </tr>
+        <tr>
+            <td>执行时间限制</td>
+            <td>{$info['执行时间限制']}</td>
+        </tr>
+        <tr>
+            <td>服务器时间</td>
+            <td>{$info['服务器时间']}</td>
+        </tr>
+         <tr>
+            <td>北京时间</td>
+            <td>{$info['北京时间']}</td>
+        </tr>
+        <tr>
+            <td>服务器域名/IP</td>
+            <td>{$info['服务器域名/IP']}</td>
+        </tr>
+        <tr>
+            <td>剩余空间</td>
+            <td>{$info['剩余空间']}</td>
+        </tr>
+    </table>
+{/block}
+{block name="title"}
+    首页
+{/block}

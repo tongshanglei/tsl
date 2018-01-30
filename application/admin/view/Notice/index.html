@@ -1,0 +1,107 @@
+{extend name="AdminPublic:index"}
+{block name="title"}查看公告{/block}
+
+{block name="content"}
+<div class="mws-panel grid_8">
+    <div class="mws-panel-header">
+        <span><i class="icon-table"></i> 查看公告</span>
+    </div>
+    <div class="mws-panel-body no-padding">
+        <div id="DataTables_Table_1_wrapper" class="dataTables_wrapper" role="grid">
+
+            <table class="mws-datatable-fn mws-table dataTable" id="DataTables_Table_1"
+                   aria-describedby="DataTables_Table_1_info">
+                <thead>
+                <tr role="row">
+                    <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 166.2px;" aria-sort="ascending"
+                        aria-label="Rendering engine: activate to sort column descending">ID
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1"
+                        colspan="1" style="width: 251.2px;" aria-label="Browser: activate to sort column ascending">
+                        标题
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1"
+                        colspan="1" style="width: 160.2px;"
+                        aria-label="Engine version: activate to sort column ascending">添加时间
+                    </th>
+                    <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1" rowspan="1"
+                        colspan="1" style="width: 118px;" aria-label="CSS grade: activate to sort column ascending">操作
+                    </th>
+                </tr>
+                </thead>
+
+                <tbody role="alert" aria-live="polite" aria-relevant="all">
+
+                {foreach $data as $v}
+                <tr class="odd" style="text-align: center">
+                    <td class="sorting_1">{$v.id}</td>
+                    <td class=" ">{$v.title}</td>
+                    <td class=" ">{$v.addtime|date="Y-m-d H:i:s",###}</td>
+                    <td class=" "><a href="/notice/edit/id/{$v.id}" class="btn btn-info">查看详情或修改</a>&nbsp;<a
+                            href="/notice/delete/id/{$v.id}" class="btn btn-success">删除</a></td>
+                </tr>
+                {/foreach}
+
+                </tbody>
+            </table>
+
+            <div class="dataTables_info" id="DataTables_Table_1_info">
+
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="js"}
+<script>
+    $('.btn-danger').click(function () {
+        val = $(this).html();
+        switch (val) {
+            case '全选':
+                $(':checkbox').attr('checked', true);
+                break;
+            case '全不选':
+                $(':checkbox').attr('checked', false);
+                break;
+            case '反选':
+                $(':checkbox').each(function () {
+                    if ($(this).attr('checked')) {
+                        $(this).attr('checked', false);
+                    } else {
+                        $(this).attr('checked', true);
+
+                    }
+                });
+                break;
+        }
+    });
+    $('.btn-inverse').click(function () {
+        id = [];
+        $(':checkbox').each(function () {
+            if ($(this).attr('checked')) {
+                id.push($(this).parent('td').next('td').html());
+            }
+
+        });
+        if (id.length == 0) {
+            alert('请先选择删除数据');
+        } else {
+            $.post('/notice/ajaxDel', {id: id}, function (data) {
+                if (data) {
+                    $(':checkbox').each(function () {
+                        if ($(this).attr('checked')) {
+                            $(this).parents('tr').remove();
+                        }
+
+                    });
+                    console.log(data);
+                    alert(data);
+
+                }
+            });
+        }
+
+    });
+</script>
+{/block}

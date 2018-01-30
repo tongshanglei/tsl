@@ -1,0 +1,51 @@
+{block name="title"}节点添加{/block}
+{extend name="AdminPublic:index"/}
+{block name="content"}
+<html>
+ <head></head>
+ <body>
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span>节点添加</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <form class="mws-form" action="/nodelist/insert" method="post"> 
+     <div class="mws-form-inline"> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">节点名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="name"/> 
+       </div> 
+      </div> 
+
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">控制器名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="mname"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">方法名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="aname"/> 
+       </div> 
+      </div> 
+      
+     
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">节点状态</label> 
+       <div class="mws-form-item"> 
+        <select class="large" name="status"> <option value="0">0</option><option value="1">1</option> </select> 
+       </div> 
+      </div> 
+      
+     <div class="mws-button-row"> 
+      <input value="提交" class="btn btn-danger" type="submit" /> 
+      <input value="重置" class="btn " type="reset" /> 
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+ </body>
+</html>
+{/block}

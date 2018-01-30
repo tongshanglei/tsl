@@ -1,0 +1,40 @@
+{extend name="AdminPublic:index"/}
+{block name="title"}会员地址{/block}
+{block name="content"}
+	<div class="mws-panel grid_8">
+
+                	<div class="mws-panel-header">
+                    	<span><i class="icon-table"></i>会员地址列表</span>
+                    	 <form style="margin-top:-30px;float:right;color:#6BFFD3;font-size:15px" action="/address/index" method="get">
+							会员ID搜索：<input type="text" name="keyword">
+							<input type="submit" value="搜索">
+                    	 </form>
+                    </div>
+
+                    <div class="mws-panel-body no-padding">
+                        <table class="mws-table">
+                            <thead>
+                                <tr>
+                                    <th>会员ID</th>
+                                    <th>收货地址</th>
+                                    <th>收件人</th>
+                                    <th>收件人电话</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {foreach name="address" item="row"}
+                                <tr align="center">
+                                    <td>{$row['u_id']}</td>
+                                    <td>{$row['address']}</td>
+                                    <td>{$row['u_name']}</td>
+                                    <td>{$row['phone']}</td>
+                                </tr>
+                            {/foreach}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div style="float:right;margin-top:-30px;margin-right:20px" class="dataTables_paginate paging_two_button" id="pages">
+                {$address->appends($request)->render()}
+                 </div>
+{/block}

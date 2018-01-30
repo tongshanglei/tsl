@@ -1,0 +1,64 @@
+{extend name="AdminPublic:index"/}
+{block name="content"}
+	<html>
+ <head></head>
+ <body>
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span>{$tishi}</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <form class="mws-form" action="/userinfo/{$action}" method="post" enctype="multipart/form-data"> 
+     <div class="mws-form-inline"> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">用户姓名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="name" value="{$m==1? $info['name'] : ''}"/> 
+       </div> 
+      </div> 
+       <div class="mws-form-row">
+         <label class="mws-form-label">头像</label>
+          <div class="mws-form-item">
+           <input class="large" type="file" name="pic" >
+          </div>
+         </div>
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">联系方式</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="phone" value="{$m==1? $info['phone'] : ''}"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">性别</label> 
+       <div class="mws-form-item"> 
+        <select class="large" name="sex"> <option value="0" {if condition="$info['sex'] eq 0"}selected{/if}>女</option><option value="1" {if condition="$info['sex'] eq 1"}
+        selected{/if}>男</option><option value="2" {if condition="$info['sex'] eq 2"}
+        selected{/if}>保密</option>   </select> 
+       </div> 
+      </div> 
+     <div class="mws-form-row"> 
+       <label class="mws-form-label">邮箱</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="email" value="{$m==1? $info['email'] : ''}"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">地址</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="address" value="{$m==1? $info['address'] : ''}"/> 
+       </div> 
+      </div> 
+
+     </div> 
+     <div class="mws-button-row"> 
+      <input type="hidden" name="uid" value="{$uid}">
+      <input value="修改" class="btn btn-danger" type="submit" /> 
+
+     </div> 
+    </form> 
+   </div> 
+  </div>
+ </body>
+</html>
+{/block}
+{block name="title"}{$tishi}{/block}

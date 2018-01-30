@@ -1,0 +1,44 @@
+{block name="title"}管理员修改{/block}
+{extend name="AdminPublic:index"/}
+{block name="content"}
+<html>
+ <head></head>
+ <body>
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span>管理员修改</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <form class="mws-form" action="/admins/update" method="post"> 
+     <div class="mws-form-inline"> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">管理员用户名</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="name" value="{$info['name']}"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">密码</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="password" name="pwd" /> 
+       </div> 
+      </div> 
+      
+     
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">管理员状态</label> 
+       <div class="mws-form-item"> 
+        <select class="large" name="status"> <option value="0">禁用</option><option value="1">正常</option>   </select> 
+       </div> 
+      </div> 
+      <input type="hidden" name="id" value="{$id}">
+     <div class="mws-button-row"> 
+      <input value="提交" class="btn btn-danger" type="submit" /> 
+      <input value="重置" class="btn " type="reset" /> 
+     </div> 
+    </form> 
+   </div> 
+  </div> 
+ </body>
+</html>
+{/block}

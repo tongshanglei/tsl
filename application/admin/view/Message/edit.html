@@ -1,0 +1,45 @@
+{block name="title"}站内信修改{/block}
+{extend name="AdminPublic:index"/}
+{block name="content"}
+<html>
+ <head></head>
+ <body>
+  <div class="mws-panel grid_8"> 
+   <div class="mws-panel-header"> 
+    <span>添加站修改</span> 
+   </div> 
+   <div class="mws-panel-body no-padding"> 
+    <form class="mws-form" action="/message/update" method="post"> 
+     <div class="mws-form-inline"> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">发送者</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="sendname" value="{$info['sendname']}"/> 
+       </div> 
+      </div> 
+     
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">接收者id</label> 
+       <div class="mws-form-item"> 
+        <input class="large" type="text" name="recid" value="{$info['recid']}"/> 
+       </div> 
+      </div> 
+      <div class="mws-form-row"> 
+       <label class="mws-form-label">站内信内容</label> 
+       <div class="mws-form-item"> 
+        <textarea rows="" cols="" class="large" name="content">{$info['content']}</textarea> 
+       </div> 
+      </div> 
+      
+      
+      <input type="hidden" value="{$id}" name="id">
+     <div class="mws-button-row"> 
+      <input value="修改" class="btn btn-danger" type="submit" />
+      <input value="Reset" class="btn " type="reset" /> 
+     </div> 
+    </form> 
+   </div> 
+  </div>
+ </body>
+</html>
+{/block}
